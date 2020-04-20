@@ -2,6 +2,8 @@ package com.produtos.apirest.resources;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import com.produtos.apirest.models.Produto;
 import com.produtos.apirest.repository.ProdutoRepository;
 
@@ -42,19 +44,19 @@ public class ProdutoResource {
 
 	@PostMapping("/produto")
 	@ApiOperation(value = "Salva um produto")
-	public Produto saveProduto(@RequestBody Produto produto) {
+	public Produto saveProduto(@RequestBody @Valid Produto produto) {
 		return produtoRepository.save(produto);
 	}
 
 	@DeleteMapping("/produto")
 	@ApiOperation(value = "Deleta um produto")
-	public void deleteProduto(@RequestBody Produto produto) {
+	public void deleteProduto(@RequestBody @Valid Produto produto) {
 		produtoRepository.delete(produto);
 	}
 
 	@PutMapping("/produto")
 	@ApiOperation(value = "Atualiza um produto")
-	public Produto updateProduto(@RequestBody Produto produto) {
+	public Produto updateProduto(@RequestBody @Valid Produto produto) {
 		return produtoRepository.save(produto);
 	}
 
